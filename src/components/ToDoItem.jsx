@@ -2,8 +2,11 @@
 import { useState } from "react";
 import styles from "../styles/ToDoItem.module.css";
 import { FaCheck } from "react-icons/fa";
+import { Link, useLocation } from "react-router-dom";
 
 const ToDoItem = ({ task, setTasksArr, tasksArr }) => {
+  const location = useLocation();
+
   const [isReadOnly, setIsReadOnly] = useState(true);
   const [inputText, setInputText] = useState(task.taskName);
   const [textAreaText, setTextAreaText] = useState(task.task);
@@ -54,15 +57,15 @@ const ToDoItem = ({ task, setTasksArr, tasksArr }) => {
     );
 
     setTasksArr(updatedTodos);
-    // setInputText(inputText.trim().replace(/\s\s+/g, " "));
-    // setTextAreaText(textAreaText.trim().replace(/\s\s+/g, " "));
     localStorage.setItem("toDoList", JSON.stringify(updatedTodos));
   }
 
   return (
     <div className={styles.wbsCard}>
       <button className={styles.wbsOpenTaskBtn} type="button">
-        Open Task
+        <Link to={`${task.id}`} state={{ from: location }}>
+          Open Task
+        </Link>
       </button>
       <div className={styles.wbsInnWrp}>
         {isReadOnly ? (
@@ -76,22 +79,10 @@ const ToDoItem = ({ task, setTasksArr, tasksArr }) => {
             onChange={(e) => setInputText(e.target.value)}
           />
         )}
-
-        {/* className={`${styles.wbsItemInput} ${styles.hidden}`} */}
-        {/*  */}
         <div
           className={`${styles.wbsItemCheckbox} ${styles.checkbox}`}
           onClick={toggleCompletion}
         >
-          {/* <input
-            type="checkbox"
-            name="check"
-            id="check"
-            checked={isDone}
-            className={`${styles.visuallyHidden} ${styles.checkboxInput}`}
-            onChange={toggleCompletion}
-          /> */}
-          {/* <FaCheck className={`${styles.checkboxIcon} ${styles.checkbox}`} /> */}
           {isDone && (
             <FaCheck className={`${styles.checkboxIcon} ${styles.checkbox}`} />
           )}

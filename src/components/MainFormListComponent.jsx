@@ -11,19 +11,15 @@ import frog from "../assets/images/frog-green-md.png";
 
 const MainFormListComponent = ({
   tasksArr,
-  //isTaskArr,
   setTasksArr,
   onFormSubmit,
-  // setNewTask,
   setNameTask,
   setTask,
   isFormHidden,
   handleAddBtnClick,
-  //handleDeleteTask,
   setOption,
   option,
   filteredArr,
-  // handleEditTask,
 }) => {
   const handleChange = (event) => {
     setOption(event.target.value);
@@ -67,11 +63,8 @@ const MainFormListComponent = ({
               <ToDoList
                 tasksArr={tasksArr}
                 filteredArr={filteredArr}
-                // handleAddBtnClick={handleAddBtnClick}
-                //handleDeleteTask={handleDeleteTask}
                 setTasksArr={setTasksArr}
                 option={option}
-                // handleEditTask={handleEditTask}
               />
             ) : (
               <>

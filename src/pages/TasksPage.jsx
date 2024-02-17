@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import StartComponent from "../components/StartComponent";
 import MainFormListComponent from "../components/MainFormListComponent";
 import Spinner from "../components/Spinner";
+import { getDataFromLocalStorage } from "../services/requesrs";
 
 const TasksPage = () => {
   const [tasksArr, setTasksArr] = useState([]);
@@ -16,23 +17,19 @@ const TasksPage = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [arrUploaded, setArrUploaded] = useState(false);
 
-  const extractDataFromLocalStorage = async () => {
-    setIsLoading(true);
-    const getData = await JSON.parse(localStorage.getItem("toDoList"));
-
-    return getData;
-  };
-
   useEffect(() => {
     setIsLoading(true);
-    extractDataFromLocalStorage()
+    getDataFromLocalStorage()
       .then((res) => {
         if (res || res.length !== 0) {
           setTasksArr(res);
         }
       })
       .catch((error) => console.log(error.message))
-      .finally(setIsLoading(false));
+      .finally(() => {
+        setIsLoading(false);
+        setArrUploaded(true);
+      });
   }, []);
 
   useEffect(() => {
@@ -58,8 +55,6 @@ const TasksPage = () => {
       });
       setFilteredArr(updatedFilteredTaskArr);
     }
-
-    setArrUploaded(true);
   }, [arrUploaded, option, tasksArr]);
   //&& tasksArr.length != 0
   function onFormSubmit(e) {
@@ -93,10 +88,9 @@ const TasksPage = () => {
   return (
     <>
       {isLoading && <Spinner />}
-      {isStartPageShown && (
+      {arrUploaded && isStartPageShown ? (
         <StartComponent handleStartBtnClick={handleStartBtnClick} />
-      )}
-      {!isStartPageShown && arrUploaded && (
+      ) : (
         <MainFormListComponent
           tasksArr={tasksArr}
           isFormHidden={isFormHidden}
@@ -109,7 +103,6 @@ const TasksPage = () => {
           setOption={setOption}
           option={option}
           filteredArr={filteredArr}
-          arrUploaded={arrUploaded}
         />
       )}
     </>
