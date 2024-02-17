@@ -2,6 +2,7 @@ import { useLocation, useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { getDataFromLocalStorage } from "../services/requesrs";
 import Spinner from "../components/Spinner";
+import ToDoItem from "../components/ToDoItem";
 
 const SingleTaskPage = () => {
   const { id } = useParams();
@@ -14,10 +15,8 @@ const SingleTaskPage = () => {
     setIsLoading(true);
     getDataFromLocalStorage()
       .then((res) => {
-        console.log(res, id);
         const singleTask = res.filter((item) => item.id === Number(id));
         setTask(singleTask[0]);
-        console.log(singleTask[0]);
       })
       .catch((error) => console.log(error.message))
       .finally(() => {
