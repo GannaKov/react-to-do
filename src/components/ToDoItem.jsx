@@ -22,7 +22,6 @@ const ToDoItem = ({ task, setTasksArr, tasksArr }) => {
 
   function handleDeleteTask(idItem) {
     const arr = tasksArr.filter((task) => task.id != idItem);
-    console.log(arr);
     setTasksArr(arr);
     localStorage.setItem("toDoList", JSON.stringify(arr));
     // if (arr.length === 0) {
