@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { getDataFromLocalStorage } from "../services/requesrs";
 import Spinner from "../components/Spinner";
 import SingleItemCard from "../components/SingleItemCard";
+import styles from "../styles/SingleTaskPage.module.css";
 
 const SingleTaskPage = () => {
   const { id } = useParams();
@@ -31,9 +32,13 @@ const SingleTaskPage = () => {
 
   return (
     <>
-      <button>
-        <Link to={backLinkHref}>Back to products</Link>
-      </button>
+      <Link to={backLinkHref}>
+        <button className={styles.wbsGoBackBtn}>
+          {" "}
+          &larr; Back to products{" "}
+        </button>
+      </Link>
+
       {isLoading && <Spinner />}
       {fetched && (
         <>

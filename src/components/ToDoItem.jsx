@@ -61,11 +61,16 @@ const ToDoItem = ({ task, setTasksArr, tasksArr }) => {
 
   return (
     <div className={styles.wbsCard}>
-      <button className={styles.wbsOpenTaskBtn} type="button">
-        <Link to={`${task.id}`} state={{ from: location }}>
+      <Link
+        className={styles.wbsOpenTaskLink}
+        to={`${task.id}`}
+        state={{ from: location }}
+      >
+        <button className={styles.wbsOpenTaskBtn} type="button">
           Open Task
-        </Link>
-      </button>
+        </button>
+      </Link>
+
       <div className={styles.wbsInnWrp}>
         {isReadOnly ? (
           <h2 className={styles.wbsItemTitle}>{task.taskName}</h2>
