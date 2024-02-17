@@ -21,29 +21,29 @@ const TasksPage = () => {
     setIsLoading(true);
     getDataFromLocalStorage()
       .then((res) => {
-        if (res || res.length !== 0) {
+        if (res && res.length !== 0) {
           setTasksArr(res);
         }
       })
       .catch((error) => console.log(error.message))
       .finally(() => {
         setIsLoading(false);
-        setArrUploaded(true);
       });
   }, []);
+
+  // useEffect(() => {
+  //   if (tasksArr.length !== 0) {
+  //     setIsStartPageShown(false);
+  //   } else {
+  //     setIsStartPageShown(true);
+  //   }
+  //   console.log(" in 2 ef arrUploaded", arrUploaded, isStartPageShown);
+  //   // localStorage.setItem("toDoList", JSON.stringify(tasksArr));
+  // }, [tasksArr]);
 
   useEffect(() => {
     if (tasksArr.length !== 0) {
       setIsStartPageShown(false);
-    } else {
-      setIsStartPageShown(true);
-    }
-
-    // localStorage.setItem("toDoList", JSON.stringify(tasksArr));
-  }, [tasksArr]);
-
-  useEffect(() => {
-    if (tasksArr) {
       const updatedFilteredTaskArr = tasksArr.filter((task) => {
         if (option === "all") {
           return true;
@@ -54,9 +54,13 @@ const TasksPage = () => {
         }
       });
       setFilteredArr(updatedFilteredTaskArr);
+    } else {
+      setIsStartPageShown(true);
     }
+
+    setArrUploaded(true);
   }, [arrUploaded, option, tasksArr]);
-  //&& tasksArr.length != 0
+
   function onFormSubmit(e) {
     e.preventDefault();
     if (task === "" || nameTask === "") {
@@ -88,22 +92,27 @@ const TasksPage = () => {
   return (
     <>
       {isLoading && <Spinner />}
-      {arrUploaded && isStartPageShown ? (
-        <StartComponent handleStartBtnClick={handleStartBtnClick} />
-      ) : (
-        <MainFormListComponent
-          tasksArr={tasksArr}
-          isFormHidden={isFormHidden}
-          setTasksArr={setTasksArr}
-          onFormSubmit={onFormSubmit}
-          // setNewTask={setNewTask}
-          setNameTask={setNameTask}
-          setTask={setTask}
-          handleAddBtnClick={handleAddBtnClick}
-          setOption={setOption}
-          option={option}
-          filteredArr={filteredArr}
-        />
+      {arrUploaded && (
+        <>
+          {isStartPageShown && tasksArr.length === 0 && (
+            <StartComponent handleStartBtnClick={handleStartBtnClick} />
+          )}
+          {!isStartPageShown && (
+            <MainFormListComponent
+              tasksArr={tasksArr}
+              isFormHidden={isFormHidden}
+              setTasksArr={setTasksArr}
+              onFormSubmit={onFormSubmit}
+              // setNewTask={setNewTask}
+              setNameTask={setNameTask}
+              setTask={setTask}
+              handleAddBtnClick={handleAddBtnClick}
+              setOption={setOption}
+              option={option}
+              filteredArr={filteredArr}
+            />
+          )}
+        </>
       )}
     </>
   );

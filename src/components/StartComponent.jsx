@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
 import sleepCat from "../assets/images/sleepcat.png";
 import styles from "../styles/StartComponent.module.css";
+
 const StartComponent = ({ handleStartBtnClick }) => {
   return (
     <div className={styles.wbsStartSection}>
