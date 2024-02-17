@@ -1,0 +1,227 @@
+/* .wbsCard {
+} */
+.wbsOpenTaskBtn {
+  margin-bottom: 1rem;
+  outline: 1px solid transparent;
+  background-color: white;
+  border-radius: 8px;
+  border: 1px solid rgb(65, 62, 62);
+  color: green;
+  font-size: 0.9rem;
+  height: 36px;
+  width: 100px;
+  -webkit-box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.51);
+  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.51);
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    border-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+/* @media screen and (min-width: 800px) {
+  .wbsOpenTaskBtn {
+    margin-bottom: 0;
+  }
+} */
+.wbsOpenTaskBtn:is(:focus, :hover) {
+  color: white;
+  background-color: green;
+  border-color: green;
+}
+.wbsInnWrp {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+.wbsItemInput {
+  width: 230px;
+  padding-left: 10px;
+  margin: 0 auto;
+  border-radius: 8px;
+
+  height: 35px;
+  font-size: 1.5rem;
+  font-weight: 700;
+  outline: 1px solid transparent;
+  border: 1px solid black;
+  /* ---------- */
+}
+@media screen and (min-width: 800px) {
+  .wbsItemInput {
+    width: 200px;
+  }
+}
+/* .wbsItemInput.hidden {
+  display: none;
+} */
+.wbsItemInput.hidden {
+  border: 1px solid transparent;
+  /* pointer-events: none; */
+}
+.wbsItemTitle {
+  margin: 0 auto;
+  font-weight: 700;
+  font-size: 1.8rem;
+  /* _______ */
+  width: 300px;
+  overflow: hidden;
+
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  display: inline-block;
+  /* for long */
+  /* height: auto;
+  word-break: break-word; */
+}
+@media screen and (min-width: 500px) {
+  .wbsItemTitle {
+    width: 300px;
+  }
+}
+@media screen and (min-width: 800px) {
+  .wbsItemTitle {
+    width: 300px;
+  }
+}
+/* .wbsItemTitle.hidden {
+  display: none;
+} */
+.checkboxInput {
+  width: 25px;
+  height: 25px;
+}
+
+/* .visuallyHidden {
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  border: 0;
+  padding: 0;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  margin: -1px;
+} */
+.wbsItemCheckbox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 25px;
+  height: 25px;
+  border-radius: 2px;
+  border: 1px dotted rgb(172, 170, 170);
+  cursor: pointer;
+}
+.checkboxIcon {
+  width: 35px;
+  fill: green;
+}
+
+.wbsCardBottom {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  gap: 10px;
+}
+
+@media screen and (min-width: 500px) {
+  .wbsCardBottom {
+    flex-direction: row;
+  }
+}
+.wbsItemTextArea {
+  width: 100%;
+  resize: none;
+  padding: 0.5rem;
+  border: 1px solid grey;
+  border-radius: 5px;
+  outline: 1px solid transparent;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  font-size: 1.1rem;
+  font-family: "Roboto";
+  line-height: 1.46;
+}
+/* .wbsItemTextArea.hidden {
+  display: none;
+} */
+.wbsItemTextArea.hidden {
+  border: 1px solid transparent;
+}
+.wbsItemText {
+  margin-bottom: 1rem;
+  white-space: normal;
+  font-size: 1.1rem;
+  margin-top: 0;
+  font-family: "Roboto";
+  line-height: 1.46;
+}
+@media screen and (min-width: 500px) {
+  .wbsItemText {
+    margin-bottom: 0;
+  }
+}
+/* .wbsItemText.short-task.hidden {
+  display: none;
+} */
+.wbsItemText.shortTask {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  display: -webkit-box;
+}
+.shortTask {
+  white-space: pre-wrap;
+}
+.wbsBtnWrp {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+}
+@media screen and (min-width: 500px) {
+  .wbsBtnWrp {
+    align-items: center;
+  }
+}
+.wbsBtnBottom {
+  outline: 1px solid transparent;
+  height: 30px;
+  border-radius: 5px;
+  font-size: 0.8rem;
+  -webkit-box-shadow: 1px 2px 6px 0px rgba(0, 0, 0, 0.51);
+  box-shadow: 1px 2px 6px 0px rgba(0, 0, 0, 0.51);
+}
+.wbsBtnEdit {
+  border: 1px solid rgb(2, 161, 2);
+  color: white;
+  background-color: rgb(2, 161, 2);
+  width: 50px;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.wbsBtnEdit:is(:focus, :hover) {
+  background-color: green;
+  border-color: green;
+}
+.wbsBtnDelete {
+  border: 1px solid red;
+  color: white;
+  background-color: red;
+  width: 60px;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.wbsBtnDelete :focus,
+.wbsBtnDelete :hover {
+  background-color: rgb(154, 18, 18);
+  border-color: rgb(154, 18, 18);
+}
+/* .wbs-item__no-text {
+  text-align: center;
+  font-size: 1.3rem;
+  margin-top: 2rem;
+} */

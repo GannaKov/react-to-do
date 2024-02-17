@@ -1,0 +1,30 @@
+.wrapperSection {
+}
+.headerWrp {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid gray;
+}
+.headerNavList {
+  display: flex;
+  justify-content: space-around;
+}
+
+.headerNavLink {
+  font-size: 1.3rem;
+  color: green;
+}
+
+.headerNavLink:is(:hover, :focus) {
+  text-decoration: underline;
+  text-decoration-thickness: 0.1rem;
+}
+.headerNavLink.active {
+  color: red;
+  /* text-decoration: underline;
+  text-decoration-thickness: 0.1rem; */
+}
+.headerNavLink.active:is(:hover, :focus) {
+  text-decoration: underline;
+  text-decoration-thickness: 0.1rem;
+}
