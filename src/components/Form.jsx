@@ -50,39 +50,48 @@ const Form = ({
           ></textarea>
           <div>
             <label>Priority?</label>
-            <div>
-              <label htmlFor="low">low</label>
-              <input
-                id="low"
-                name="priority"
-                type="radio"
-                value="low"
-                checked={priority === "low"}
-                // onChange={(e) => setPriority(e.target.value)}
-                onChange={(e) => setPriority(e.target.value)}
-              />
-            </div>
-            <div>
-              <label htmlFor="medium">medium</label>
-              <input
-                id="medium"
-                name="priority"
-                type="radio"
-                value="medium"
-                checked={priority === "medium"}
-                onChange={(e) => setPriority(e.target.value)}
-              />
-            </div>
-            <div>
-              <label htmlFor="hard">high</label>
-              <input
-                id="hard"
-                name="priority"
-                type="radio"
-                value="high"
-                checked={priority === "high"}
-                onChange={(e) => setPriority(e.target.value)}
-              />
+            <div className={styles.wbsFormRatio}>
+              <div>
+                <label className={styles.wbsFormRatioLabel} htmlFor="low">
+                  low
+                </label>
+                <input
+                  className={styles.wbsFormRatioImput}
+                  id="low"
+                  name="priority"
+                  type="radio"
+                  value="low"
+                  checked={priority === "low"}
+                  // onChange={(e) => setPriority(e.target.value)}
+                  onChange={(e) => setPriority(e.target.value)}
+                />
+              </div>
+              <div>
+                <label className={styles.wbsFormRatioLabel} htmlFor="medium">
+                  medium
+                </label>
+                <input
+                  id="medium"
+                  name="priority"
+                  type="radio"
+                  value="medium"
+                  checked={priority === "medium"}
+                  onChange={(e) => setPriority(e.target.value)}
+                />
+              </div>
+              <div>
+                <label className={styles.wbsFormRatioLabel} htmlFor="hard">
+                  high
+                </label>
+                <input
+                  id="hard"
+                  name="priority"
+                  type="radio"
+                  value="high"
+                  checked={priority === "high"}
+                  onChange={(e) => setPriority(e.target.value)}
+                />
+              </div>
             </div>
           </div>
         </div>

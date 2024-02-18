@@ -51,18 +51,21 @@ const MainFormListComponent = ({
         )}
         {tasksArr && (
           <>
-            <FormControl sx={{ m: 1, minWidth: 120 }}>
-              <Select
-                value={option}
-                displayEmpty
-                inputProps={{ "aria-label": "Without label" }}
-                onChange={handleChange}
-              >
-                <MenuItem value="all">All</MenuItem>
-                <MenuItem value="completed">Completed</MenuItem>
-                <MenuItem value="notCompleted">Not Completed</MenuItem>
-              </Select>
-            </FormControl>
+            <div className={styles.dropDown}>
+              <FormControl sx={{ m: 1, minWidth: 120 }}>
+                <Select
+                  value={option}
+                  displayEmpty
+                  inputProps={{ "aria-label": "Without label" }}
+                  onChange={handleChange}
+                >
+                  <MenuItem value="all">All</MenuItem>
+                  <MenuItem value="completed">Completed</MenuItem>
+                  <MenuItem value="notCompleted">Not Completed</MenuItem>
+                </Select>
+              </FormControl>
+            </div>
+
             {filteredArr && filteredArr.length > 0 ? (
               <ToDoList
                 tasksArr={tasksArr}

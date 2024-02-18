@@ -1,6 +1,11 @@
+.wbsGoBackWrp {
+  /* margin-top: 2rem;
+  margin-bottom: 3rem; */
+  display: flex;
+  justify-content: center;
+  padding: 2rem 0 3rem;
+}
 .wbsGoBackBtn {
-  margin-top: 2rem;
-  margin-bottom: 3rem;
   outline: 1px solid transparent;
   background-color: white;
   border-radius: 8px;

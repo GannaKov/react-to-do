@@ -32,11 +32,13 @@ const SingleTaskPage = () => {
 
   return (
     <>
-      <Link to={backLinkHref}>
-        <button className={styles.wbsGoBackBtn}>
-          &larr; Back to products{" "}
-        </button>
-      </Link>
+      <div className={styles.wbsGoBackWrp}>
+        <Link to={backLinkHref}>
+          <button className={styles.wbsGoBackBtn}>
+            &larr; Back to products
+          </button>
+        </Link>
+      </div>
 
       {isLoading && <Spinner />}
       {fetched && (

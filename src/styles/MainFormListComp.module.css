@@ -1,9 +1,12 @@
 .wbsSection {
   display: flex;
-  padding: 1rem;
+  padding: 0rem 1rem;
   justify-content: center;
   flex-direction: column;
   align-items: center;
+}
+.dropDown {
+  margin-bottom: 1rem;
 }
 .wbsListBtnAdd {
   /* margin-bottom: 2rem;
