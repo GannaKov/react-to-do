@@ -48,7 +48,7 @@ const Form = ({
             //onChange={onImputChange}
             onChange={(e) => setTask(e.target.value)}
           ></textarea>
-          <div>
+          <div className={styles.wbsFormRatioWrp}>
             <label>Priority?</label>
             <div className={styles.wbsFormRatio}>
               <div>

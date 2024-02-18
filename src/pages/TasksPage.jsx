@@ -12,7 +12,7 @@ const TasksPage = () => {
   const [isFormHidden, setIsFormHidden] = useState(true);
   const [nameTask, setNameTask] = useState("");
   const [task, setTask] = useState("");
-  const [priority, setPriority] = useState("");
+  const [priority, setPriority] = useState("low");
 
   const [option, setOption] = useState("all");
   const [isLoading, setIsLoading] = useState(false);

@@ -61,7 +61,12 @@ const ToDoItem = ({ task, setTasksArr, tasksArr }) => {
   }
 
   return (
-    <div className={`${styles.wbsPriority} ${styles[task.priority]}`}>
+    <div className={styles.taskWrp}>
+      <div className={`${styles[task.priority]} ${styles.boxPriority}`}></div>
+      {/* <div
+        className={styles.wbsCardWrp}
+        // className={`${styles.wbsPriority} ${styles[task.priority]}`}
+      > */}
       <div className={styles.wbsCard}>
         <Link
           className={styles.wbsOpenTaskLink}
