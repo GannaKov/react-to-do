@@ -12,6 +12,7 @@ const TasksPage = () => {
   const [isFormHidden, setIsFormHidden] = useState(true);
   const [nameTask, setNameTask] = useState("");
   const [task, setTask] = useState("");
+  const [priority, setPriority] = useState("");
 
   const [option, setOption] = useState("all");
   const [isLoading, setIsLoading] = useState(false);
@@ -30,16 +31,6 @@ const TasksPage = () => {
         setIsLoading(false);
       });
   }, []);
-
-  // useEffect(() => {
-  //   if (tasksArr.length !== 0) {
-  //     setIsStartPageShown(false);
-  //   } else {
-  //     setIsStartPageShown(true);
-  //   }
-  //   console.log(" in 2 ef arrUploaded", arrUploaded, isStartPageShown);
-  //   // localStorage.setItem("toDoList", JSON.stringify(tasksArr));
-  // }, [tasksArr]);
 
   useEffect(() => {
     if (tasksArr.length !== 0) {
@@ -68,7 +59,13 @@ const TasksPage = () => {
     } else {
       let arr;
       arr = [
-        { id: Date.now(), isDone: false, task: task, taskName: nameTask },
+        {
+          id: Date.now(),
+          isDone: false,
+          task: task,
+          taskName: nameTask,
+          priority: priority,
+        },
         ...tasksArr,
       ];
       setTasksArr(arr);
@@ -106,6 +103,8 @@ const TasksPage = () => {
               // setNewTask={setNewTask}
               setNameTask={setNameTask}
               setTask={setTask}
+              setPriority={setPriority}
+              priority={priority}
               handleAddBtnClick={handleAddBtnClick}
               setOption={setOption}
               option={option}

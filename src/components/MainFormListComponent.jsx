@@ -20,6 +20,8 @@ const MainFormListComponent = ({
   setOption,
   option,
   filteredArr,
+  setPriority,
+  priority,
 }) => {
   const handleChange = (event) => {
     setOption(event.target.value);
@@ -32,6 +34,8 @@ const MainFormListComponent = ({
           //setNewTask={setNewTask}
           setNameTask={setNameTask}
           setTask={setTask}
+          setPriority={setPriority}
+          priority={priority}
         />
       )}
 

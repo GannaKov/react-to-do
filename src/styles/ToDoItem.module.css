@@ -1,5 +1,19 @@
 /* .wbsCard {
 } */
+.wbsPriority {
+  padding: 1rem 2rem 2rem;
+}
+
+.low {
+  border-left: 30px solid rgb(188, 240, 140);
+}
+.medium {
+  border-left: 30px solid rgba(255, 255, 0, 0.425);
+}
+.high {
+  border-left: 30px solid rgba(247, 90, 90, 0.35);
+  /* background-color: rgba(247, 90, 90, 0.35); */
+}
 .wbsOpenTaskBtn {
   margin-bottom: 1rem;
   outline: 1px solid transparent;

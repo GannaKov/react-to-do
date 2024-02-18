@@ -34,7 +34,6 @@ const SingleTaskPage = () => {
     <>
       <Link to={backLinkHref}>
         <button className={styles.wbsGoBackBtn}>
-          {" "}
           &larr; Back to products{" "}
         </button>
       </Link>

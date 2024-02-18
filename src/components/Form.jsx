@@ -7,9 +7,17 @@ const Form = ({
   //setNewTask
   setNameTask,
   setTask,
+  setPriority,
+  priority,
 }) => {
   // function onImputChange(e) {
   //   setNewTask((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+  // }
+  // function RadioBtnHandler(e) {
+  //   setStateForm((prev) => ({
+  //     ...prev,
+  //     priority: e.target.value,
+  //   }));
   // }
   return (
     <div className={styles.wbsFormSection}>
@@ -40,6 +48,43 @@ const Form = ({
             //onChange={onImputChange}
             onChange={(e) => setTask(e.target.value)}
           ></textarea>
+          <div>
+            <label>Priority?</label>
+            <div>
+              <label htmlFor="low">low</label>
+              <input
+                id="low"
+                name="priority"
+                type="radio"
+                value="low"
+                checked={priority === "low"}
+                // onChange={(e) => setPriority(e.target.value)}
+                onChange={(e) => setPriority(e.target.value)}
+              />
+            </div>
+            <div>
+              <label htmlFor="medium">medium</label>
+              <input
+                id="medium"
+                name="priority"
+                type="radio"
+                value="medium"
+                checked={priority === "medium"}
+                onChange={(e) => setPriority(e.target.value)}
+              />
+            </div>
+            <div>
+              <label htmlFor="hard">high</label>
+              <input
+                id="hard"
+                name="priority"
+                type="radio"
+                value="high"
+                checked={priority === "high"}
+                onChange={(e) => setPriority(e.target.value)}
+              />
+            </div>
+          </div>
         </div>
 
         <button type="submit" className={styles.wbsBtn}>

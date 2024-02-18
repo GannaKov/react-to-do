@@ -51,6 +51,7 @@ const ToDoItem = ({ task, setTasksArr, tasksArr }) => {
             taskName: inputText.trim().replace(/\s\s+/g, " "),
             task: textAreaText.trim().replace(/\s\s+/g, " "),
             isDone: task.isDone,
+            priority: task.priority,
           }
         : todo
     );
@@ -60,81 +61,84 @@ const ToDoItem = ({ task, setTasksArr, tasksArr }) => {
   }
 
   return (
-    <div className={styles.wbsCard}>
-      <Link
-        className={styles.wbsOpenTaskLink}
-        to={`${task.id}`}
-        state={{ from: location }}
-      >
-        <button className={styles.wbsOpenTaskBtn} type="button">
-          Open Task
-        </button>
-      </Link>
-
-      <div className={styles.wbsInnWrp}>
-        {isReadOnly ? (
-          <h2 className={styles.wbsItemTitle}>{task.taskName}</h2>
-        ) : (
-          <input
-            className={inputClassName}
-            type="text"
-            value={inputText}
-            readOnly={isReadOnly}
-            onChange={(e) => setInputText(e.target.value)}
-          />
-        )}
-        <div
-          className={`${styles.wbsItemCheckbox} ${styles.checkbox}`}
-          onClick={toggleCompletion}
+    <div className={`${styles.wbsPriority} ${styles[task.priority]}`}>
+      <div className={styles.wbsCard}>
+        <Link
+          className={styles.wbsOpenTaskLink}
+          to={`${task.id}`}
+          state={{ from: location }}
         >
-          {isDone && (
-            <FaCheck className={`${styles.checkboxIcon} ${styles.checkbox}`} />
-          )}
-        </div>
-      </div>
-      <div className={styles.wbsCardBottom}>
-        {isReadOnly ? (
-          <pre className={`${styles.wbsItemText} ${styles.shortTask}`}>
-            {task.task}
-          </pre>
-        ) : (
-          <textarea
-            className={textAreaClassName}
-            id="task"
-            value={textAreaText}
-            readOnly={isReadOnly}
-            onChange={(e) => {
-              setTextAreaText(e.target.value);
-              e.target.style.height = e.target.scrollHeight + "px";
-            }}
-          ></textarea>
-        )}
-        <div className={styles.wbsBtnWrp}>
-          {isReadOnly ? (
-            <button
-              type="button"
-              className={`${styles.wbsBtnBottom} ${styles.wbsBtnEdit}`}
-              onClick={onEditClick}
-            >
-              Edit
-            </button>
-          ) : (
-            <button
-              type="button"
-              className={`${styles.wbsBtnBottom} ${styles.wbsBtnEdit}`}
-              onClick={onOkClick}
-            >
-              Ok
-            </button>
-          )}
-
-          <button
-            type="button"
-            className={`${styles.wbsBtnBottom} ${styles.wbsBtnDelete}`}
-            onClick={() => handleDeleteTask(task.id)}
-          >
-            Delete
+          <button className={styles.wbsOpenTaskBtn} type="button">
+            Open Task
           </button>
+        </Link>
+        <div className={styles.wbsInnWrp}>
+          {isReadOnly ? (
+            <h2 className={styles.wbsItemTitle}>{task.taskName}</h2>
+          ) : (
+            <input
+              className={inputClassName}
+              type="text"
+              value={inputText}
+              readOnly={isReadOnly}
+              onChange={(e) => setInputText(e.target.value)}
+            />
+          )}
+          <div
+            className={`${styles.wbsItemCheckbox} ${styles.checkbox}`}
+            onClick={toggleCompletion}
+          >
+            {isDone && (
+              <FaCheck
+                className={`${styles.checkboxIcon} ${styles.checkbox}`}
+              />
+            )}
+          </div>
+        </div>
+        <div className={styles.wbsCardBottom}>
+          {isReadOnly ? (
+            <pre className={`${styles.wbsItemText} ${styles.shortTask}`}>
+              {task.task}
+            </pre>
+          ) : (
+            <textarea
+              className={textAreaClassName}
+              id="task"
+              value={textAreaText}
+              readOnly={isReadOnly}
+              onChange={(e) => {
+                setTextAreaText(e.target.value);
+                e.target.style.height = e.target.scrollHeight + "px";
+              }}
+            ></textarea>
+          )}
+          <div className={styles.wbsBtnWrp}>
+            {isReadOnly ? (
+              <button
+                type="button"
+                className={`${styles.wbsBtnBottom} ${styles.wbsBtnEdit}`}
+                onClick={onEditClick}
+              >
+                Edit
+              </button>
+            ) : (
+              <button
+                type="button"
+                className={`${styles.wbsBtnBottom} ${styles.wbsBtnEdit}`}
+                onClick={onOkClick}
+              >
+                Ok
+              </button>
+            )}
+
+            <button
+              type="button"
+              className={`${styles.wbsBtnBottom} ${styles.wbsBtnDelete}`}
+              onClick={() => handleDeleteTask(task.id)}
+            >
+              Delete
+            </button>
+          </div>
         </div>
       </div>
     </div>

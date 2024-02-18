@@ -56,7 +56,7 @@ const SingleItemCard = ({ task, tasksArr, setTask }) => {
 
   return (
     <div className={style.singleCardWrp}>
-      <div className={styles.wbsCard}>
+      <div className={`${styles.wbsPriority} ${styles[task.priority]}`}>
         <div className={styles.wbsInnWrp}>
           {isReadOnly ? (
             <h2 className={styles.wbsItemTitle}>{task.taskName}</h2>
