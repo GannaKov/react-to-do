@@ -9,6 +9,7 @@ const SingleItemCard = ({ task, tasksArr, setTask }) => {
   const [inputText, setInputText] = useState(task.taskName);
   const [textAreaText, setTextAreaText] = useState(task.task);
   const [isDone, setIsDone] = useState(task.isDone);
+  const [priority, setPriority] = useState(task.priority);
 
   const inputClassName = isReadOnly
     ? `${styles.wbsItemInput} ${styles.hidden}`
@@ -21,7 +22,9 @@ const SingleItemCard = ({ task, tasksArr, setTask }) => {
   function onEditClick() {
     setIsReadOnly(false);
   }
-
+  function handlePriorityBtnClick(e) {
+    setPriority(e.target.id);
+  }
   function onOkClick() {
     setIsReadOnly(true);
     const updatedTodos = tasksArr.map((todo) =>
@@ -31,7 +34,7 @@ const SingleItemCard = ({ task, tasksArr, setTask }) => {
             taskName: inputText.trim().replace(/\s\s+/g, " "),
             task: textAreaText.trim().replace(/\s\s+/g, " "),
             isDone: isDone,
-            priority: task.priority,
+            priority: priority,
           }
         : todo
     );
@@ -40,7 +43,7 @@ const SingleItemCard = ({ task, tasksArr, setTask }) => {
       taskName: inputText.trim().replace(/\s\s+/g, " "),
       task: textAreaText.trim().replace(/\s\s+/g, " "),
       isDone: isDone,
-      priority: task.priority,
+      priority: priority,
     });
     // setTasksArr(updatedTodos);
     localStorage.setItem("toDoList", JSON.stringify(updatedTodos));
@@ -59,7 +62,28 @@ const SingleItemCard = ({ task, tasksArr, setTask }) => {
   return (
     <div className={style.singleCardWrp}>
       <div className={styles.taskWrp}>
-        <div className={`${styles[task.priority]} ${styles.boxPriority}`}></div>
+        {isReadOnly ? (
+          <div className={`${styles[priority]} ${styles.boxPriority}`}></div>
+        ) : (
+          // className={`${styles[task.priority]} ${styles.boxPriority}`}
+          <div
+            className={styles.taskBtnsPriorityWrp}
+            onClick={handlePriorityBtnClick}
+          >
+            <button
+              id="low"
+              className={`${styles.low} ${styles.taskBtnPriority}`}
+            ></button>
+            <button
+              id="medium"
+              className={`${styles.medium} ${styles.taskBtnPriority}`}
+            ></button>
+            <button
+              id="high"
+              className={`${styles.high} ${styles.taskBtnPriority}`}
+            ></button>
+          </div>
+        )}
         <div className={styles.wbsCard}>
           <div className={styles.wbsInnWrp}>
             {isReadOnly ? (

@@ -11,6 +11,7 @@ const ToDoItem = ({ task, setTasksArr, tasksArr }) => {
   const [inputText, setInputText] = useState(task.taskName);
   const [textAreaText, setTextAreaText] = useState(task.task);
   const [isDone, setIsDone] = useState(task.isDone);
+  const [priority, setPriority] = useState(task.priority);
 
   const inputClassName = isReadOnly
     ? `${styles.wbsItemInput} ${styles.hidden}`
@@ -42,6 +43,9 @@ const ToDoItem = ({ task, setTasksArr, tasksArr }) => {
     setIsReadOnly(false);
   }
 
+  function handlePriorityBtnClick(e) {
+    setPriority(e.target.id);
+  }
   function onOkClick() {
     setIsReadOnly(true);
     const updatedTodos = tasksArr.map((todo) =>
@@ -50,8 +54,8 @@ const ToDoItem = ({ task, setTasksArr, tasksArr }) => {
             id: task.id,
             taskName: inputText.trim().replace(/\s\s+/g, " "),
             task: textAreaText.trim().replace(/\s\s+/g, " "),
-            isDone: task.isDone,
-            priority: task.priority,
+            isDone: isDone,
+            priority: priority,
           }
         : todo
     );
@@ -62,7 +66,29 @@ const ToDoItem = ({ task, setTasksArr, tasksArr }) => {
 
   return (
     <div className={styles.taskWrp}>
-      <div className={`${styles[task.priority]} ${styles.boxPriority}`}></div>
+      {isReadOnly ? (
+        <div className={`${styles[priority]} ${styles.boxPriority}`}></div>
+      ) : (
+        // className={`${styles[task.priority]} ${styles.boxPriority}`}
+        <div
+          className={styles.taskBtnsPriorityWrp}
+          onClick={handlePriorityBtnClick}
+        >
+          <button
+            id="low"
+            className={`${styles.low} ${styles.taskBtnPriority}`}
+          ></button>
+          <button
+            id="medium"
+            className={`${styles.medium} ${styles.taskBtnPriority}`}
+          ></button>
+          <button
+            id="high"
+            className={`${styles.high} ${styles.taskBtnPriority}`}
+          ></button>
+        </div>
+      )}
+
       {/* <div
         className={styles.wbsCardWrp}
         // className={`${styles.wbsPriority} ${styles[task.priority]}`}
