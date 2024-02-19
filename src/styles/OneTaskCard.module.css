@@ -1,4 +1,4 @@
-/* .taskWrp {
+.taskWrp {
   display: flex;
 }
 
@@ -14,8 +14,8 @@
 .high {
   background-color: rgba(247, 90, 90, 0.35);
   /* background-color: rgba(247, 90, 90, 0.35); */
-/* } */
-/* .taskBtnsPriorityWrp {
+}
+.taskBtnsPriorityWrp {
   display: flex;
   flex-direction: column;
 }
@@ -39,41 +39,14 @@
 .wbsCard {
   padding: 1rem 2rem 2rem;
   width: 100%;
-} */
-.wbsOpenTaskBtn {
-  margin-bottom: 1rem;
-  outline: 1px solid transparent;
-  background-color: white;
-  border-radius: 8px;
-  border: 1px solid rgb(65, 62, 62);
-  color: green;
-  font-size: 0.9rem;
-  height: 36px;
-  width: 100px;
-  -webkit-box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.51);
-  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.51);
-  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
-    border-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
-    color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
-/* @media screen and (min-width: 800px) {
-  .wbsOpenTaskBtn {
-    margin-bottom: 0;
-  }
-} */
-.wbsOpenTaskBtn:is(:focus, :hover) {
-  color: white;
-  background-color: green;
-  border-color: green;
-}
-
-/* .wbsInnWrp {
+.wbsInnWrp {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 1.5rem;
-} */
-/* .wbsItemInput {
+}
+.wbsItemInput {
   width: 230px;
   padding-left: 10px;
   margin: 0 auto;
@@ -84,34 +57,34 @@
   font-weight: 700;
   outline: 1px solid transparent;
   border: 1px solid black;
- 
-} 
+  /* ---------- */
+}
 @media screen and (min-width: 800px) {
   .wbsItemInput {
     width: 200px;
   }
 }
-*/
-/* .wbsItemInput.hidden {
+
+.wbsItemInput.hidden {
   border: 1px solid transparent;
- 
+  /* pointer-events: none; */
 }
 .wbsItemTitle {
   margin: 0 auto;
   font-weight: 700;
   font-size: 1.8rem;
- 
+  /* _______ */
   width: 300px;
   overflow: hidden;
 
   text-overflow: ellipsis;
   white-space: nowrap;
   display: inline-block;
-  text-align: center; */
-/* for long */
-/* height: auto;
+  text-align: center;
+  /* for long */
+  /* height: auto;
   word-break: break-word; */
-/* }
+}
 @media screen and (min-width: 500px) {
   .wbsItemTitle {
     width: 300px;
@@ -121,13 +94,12 @@
   .wbsItemTitle {
     width: 300px;
   }
-} */
+}
 
-/* .checkboxInput {
+.checkboxInput {
   width: 25px;
   height: 25px;
 }
-
 
 .wbsItemCheckbox {
   display: flex;
@@ -171,11 +143,11 @@
   font-size: 1.1rem;
   font-family: "Roboto";
   line-height: 1.46;
-} */
-/* !!!!.wbsItemTextArea.hidden {
+}
+/* .wbsItemTextArea.hidden {
   display: none;
 } */
-/* .wbsItemTextArea.hidden {
+.wbsItemTextArea.hidden {
   border: 1px solid transparent;
 }
 .wbsItemText {
@@ -190,11 +162,11 @@
   .wbsItemText {
     margin-bottom: 0;
   }
-} */
-/*!!!!! .wbsItemText.short-task.hidden {
+}
+/* .wbsItemText.short-task.hidden {
   display: none;
 } */
-/* .wbsItemText.shortTask {
+.wbsItemText.shortTask {
   overflow: hidden;
   text-overflow: ellipsis;
   -webkit-line-clamp: 2;
@@ -246,9 +218,4 @@
 .wbsBtnDelete :hover {
   background-color: rgb(154, 18, 18);
   border-color: rgb(154, 18, 18);
-} */
-/* .wbs-item__no-text {
-  text-align: center;
-  font-size: 1.3rem;
-  margin-top: 2rem;
-} */
+}

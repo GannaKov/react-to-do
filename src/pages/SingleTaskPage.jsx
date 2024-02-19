@@ -1,4 +1,4 @@
-import { useLocation, useParams, Link } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { getDataFromLocalStorage } from "../services/requesrs";
 import Spinner from "../components/Spinner";
@@ -12,8 +12,9 @@ const SingleTaskPage = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [fetched, setFetched] = useState(false);
 
-  const location = useLocation();
-  const backLinkHref = location.state?.from ?? "/tasks";
+  // const location = useLocation();
+  // const backLinkHref = location.state?.from ?? "/tasks";
+  const backLinkHref = "/tasks";
 
   useEffect(() => {
     setIsLoading(true);
@@ -44,7 +45,12 @@ const SingleTaskPage = () => {
       {fetched && (
         <>
           {task ? (
-            <SingleItemCard task={task} tasksArr={tasksArr} setTask={setTask} />
+            <SingleItemCard
+              task={task}
+              tasksArr={tasksArr}
+              setTask={setTask}
+              setTasksArr={setTaskArr}
+            />
           ) : (
             <p>no task</p>
           )}
