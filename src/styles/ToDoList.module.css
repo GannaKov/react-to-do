@@ -1,6 +1,7 @@
 .wbsList {
   width: 100%;
 }
+
 @media screen and (min-width: 500px) {
   .wbsList {
     width: 400px;

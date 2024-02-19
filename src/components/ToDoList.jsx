@@ -1,5 +1,6 @@
 /* eslint-disable react/prop-types */
-import styles from "../styles/ToDolist.module.css";
+
+import styles from "../styles/ToDoList.module.css";
 import ToDoItem from "./ToDoItem";
 
 const ToDoList = ({

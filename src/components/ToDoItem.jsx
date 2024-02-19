@@ -1,8 +1,9 @@
 /* eslint-disable react/prop-types */
 
-import styles from "../styles/ToDoItem.module.css";
+
 import { Link } from "react-router-dom";
 import OneTaskCard from "./OneTaskCard";
+import styles from "../styles/ToDoItem.module.css";
 
 const ToDoItem = ({ task, setTasksArr, tasksArr }) => {
   function onOkClick(newTask) {
