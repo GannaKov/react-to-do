@@ -2,7 +2,6 @@ import { useParams, Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { getDataFromLocalStorage } from "../services/requesrs";
 import Spinner from "../components/Spinner";
-// import SingleItemCard from "../components/SingleItemCard";
 import OneTaskCard from "../components/OneTaskCard";
 import styles from "../styles/SingleTaskPage.module.css";
 
@@ -54,14 +53,7 @@ const SingleTaskPage = () => {
       {fetched && (
         <>
           {task ? (
-            // <SingleItemCard
-            //   task={task}
-            //   tasksArr={tasksArr}
-            //   setTask={setTask}
-            //   setTasksArr={setTaskArr}
-            // />
             <div className={styles.singleCardWrp}>
-              {" "}
               <OneTaskCard
                 task={task}
                 tasksArr={tasksArr}
