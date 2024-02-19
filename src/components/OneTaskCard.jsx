@@ -12,7 +12,7 @@ const OneTaskCard = ({
   onOkClick,
   btnDelete,
 }) => {
-  const [, setOneTask] = useState(task);
+  // const [, setOneTask] = useState(task);
   const [isReadOnly, setIsReadOnly] = useState(true);
   const [inputText, setInputText] = useState(task.taskName);
   const [textAreaText, setTextAreaText] = useState(task.task);
@@ -48,7 +48,6 @@ const OneTaskCard = ({
     localStorage.setItem("toDoList", JSON.stringify(updatedTasks));
   }
   function handleOkClick() {
-    console.log("id", task.id);
     setIsReadOnly(true);
     const newTask = {
       id: task.id,
@@ -57,8 +56,8 @@ const OneTaskCard = ({
       isDone: isDone,
       priority: priority,
     };
-    console.log("new", newTask);
-    setOneTask(newTask);
+
+    // setOneTask(newTask);
     onOkClick(newTask);
   }
 

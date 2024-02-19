@@ -9,7 +9,7 @@ const ToDoItem = ({ task, setTasksArr, tasksArr }) => {
     const updatedTodos = tasksArr.map((todo) =>
       todo.id === newTask.id ? newTask : todo
     );
-    console.log("upd", updatedTodos);
+
     setTasksArr(updatedTodos);
     localStorage.setItem("toDoList", JSON.stringify(updatedTodos));
   }
