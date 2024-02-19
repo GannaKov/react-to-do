@@ -2,12 +2,13 @@ import { useParams, Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { getDataFromLocalStorage } from "../services/requesrs";
 import Spinner from "../components/Spinner";
-import SingleItemCard from "../components/SingleItemCard";
+// import SingleItemCard from "../components/SingleItemCard";
+import OneTaskCard from "../components/OneTaskCard";
 import styles from "../styles/SingleTaskPage.module.css";
 
 const SingleTaskPage = () => {
   const { id } = useParams();
-  const [tasksArr, setTaskArr] = useState(null);
+  const [tasksArr, setTasksArr] = useState(null);
   const [task, setTask] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [fetched, setFetched] = useState(false);
@@ -20,7 +21,7 @@ const SingleTaskPage = () => {
     setIsLoading(true);
     getDataFromLocalStorage()
       .then((res) => {
-        setTaskArr(res);
+        setTasksArr(res);
         const singleTask = res.filter((item) => item.id === Number(id));
         setTask(singleTask[0]);
       })
@@ -30,6 +31,14 @@ const SingleTaskPage = () => {
         setFetched(true);
       });
   }, [id]);
+
+  function onOkClick(newTask) {
+    const updatedTodos = tasksArr.map((todo) =>
+      todo.id === newTask.id ? newTask : todo
+    );
+    setTask(newTask);
+    localStorage.setItem("toDoList", JSON.stringify(updatedTodos));
+  }
 
   return (
     <>
@@ -45,12 +54,22 @@ const SingleTaskPage = () => {
       {fetched && (
         <>
           {task ? (
-            <SingleItemCard
-              task={task}
-              tasksArr={tasksArr}
-              setTask={setTask}
-              setTasksArr={setTaskArr}
-            />
+            // <SingleItemCard
+            //   task={task}
+            //   tasksArr={tasksArr}
+            //   setTask={setTask}
+            //   setTasksArr={setTaskArr}
+            // />
+            <div className={styles.singleCardWrp}>
+              {" "}
+              <OneTaskCard
+                task={task}
+                tasksArr={tasksArr}
+                setTasksArr={setTasksArr}
+                onOkClick={onOkClick}
+                btnDelete={false}
+              />
+            </div>
           ) : (
             <p>no task</p>
           )}
