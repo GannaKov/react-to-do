@@ -4,12 +4,13 @@
   padding-top: 1rem;
   padding-bottom: 1rem;
   border-bottom: 1px solid gray;
-  background: rgb(179, 56, 148);
+  background: rgb(230, 92, 195);
   background: linear-gradient(
-    90deg,
-    rgba(179, 56, 148, 0.7721514875481442) 15%,
-    rgba(137, 82, 131, 0.9542243166797969) 27%,
-    rgba(146, 43, 123, 0.9178097508534664) 73%
+    160deg,
+    rgba(230, 92, 195, 0.7721514875481442) 16%,
+    rgba(234, 168, 227, 0.872991823682598) 25%,
+    rgba(240, 104, 210, 0.9178097508534664) 57%,
+    rgba(225, 164, 211, 0.9178097508534664) 84%
   );
 }
 .headerNav {
@@ -28,7 +29,8 @@
   padding-bottom: 1rem;
 }
 .headerNavLink {
-  font-size: 1.6rem;
+  font-size: 1.7rem;
+  font-weight: 800;
   color: white;
 }
 
