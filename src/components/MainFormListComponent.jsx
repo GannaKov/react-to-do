@@ -20,11 +20,28 @@ const MainFormListComponent = ({
   setOption,
   option,
   filteredArr,
+  setFilteredArr,
   setPriority,
   priority,
+  sortByPriority,
+  setSortByPriority,
 }) => {
   const handleChange = (event) => {
     setOption(event.target.value);
+  };
+
+  const handleChangePrioritySort = (event) => {
+    setSortByPriority(event.target.value);
+    const highTaskArr = tasksArr.filter((task) => task.priority === "high");
+    const lowTaskArr = tasksArr.filter((task) => task.priority === "low");
+    const mediumTaskArr = tasksArr.filter((task) => task.priority === "medium");
+    if (event.target.value === "high") {
+      setFilteredArr([...highTaskArr, ...mediumTaskArr, ...lowTaskArr]);
+    } else if (event.target.value === "low") {
+      setFilteredArr([...lowTaskArr, ...mediumTaskArr, ...highTaskArr]);
+    } else {
+      setFilteredArr(tasksArr);
+    }
   };
   return (
     <>
@@ -62,6 +79,20 @@ const MainFormListComponent = ({
                   <MenuItem value="all">All</MenuItem>
                   <MenuItem value="completed">Completed</MenuItem>
                   <MenuItem value="notCompleted">Not Completed</MenuItem>
+                </Select>
+              </FormControl>
+            </div>
+            <div className={styles.dropDown}>
+              <FormControl sx={{ m: 1, minWidth: 120 }}>
+                <Select
+                  value={sortByPriority}
+                  displayEmpty
+                  inputProps={{ "aria-label": "Without label" }}
+                  onChange={handleChangePrioritySort}
+                >
+                  <MenuItem value="no">No sort</MenuItem>
+                  <MenuItem value="high">H first</MenuItem>
+                  <MenuItem value="low">L first</MenuItem>
                 </Select>
               </FormControl>
             </div>

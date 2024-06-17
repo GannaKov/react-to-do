@@ -15,6 +15,7 @@ const TasksPage = () => {
   const [priority, setPriority] = useState("low");
 
   const [option, setOption] = useState("all");
+  const [sortByPriority, setSortByPriority] = useState("no");
   const [isLoading, setIsLoading] = useState(false);
   const [arrUploaded, setArrUploaded] = useState(false);
 
@@ -109,6 +110,9 @@ const TasksPage = () => {
               setOption={setOption}
               option={option}
               filteredArr={filteredArr}
+              setFilteredArr={setFilteredArr}
+              sortByPriority={sortByPriority}
+              setSortByPriority={setSortByPriority}
             />
           )}
         </>
