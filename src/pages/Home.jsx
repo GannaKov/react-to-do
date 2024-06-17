@@ -5,10 +5,10 @@ const Home = () => {
   return (
     <section className={styles.pageWrp}>
       <div className={styles.containerWrp}>
-        <h1 className={styles.title}>Noted</h1>
+        <p className={styles.text}>Welcome to the Task Manager!</p>
         <img src={logo} alt="logo" className={styles.logoImg} />
 
-        <p className={styles.text}>Welcome to the Task Manager!</p>
+        <h1 className={styles.title}>Noted</h1>
         {/* <img src={stopwatch} alt="stopwatch" className={styles.img} /> */}
       </div>
     </section>
