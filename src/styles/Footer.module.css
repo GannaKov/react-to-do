@@ -1,0 +1,16 @@
+.footerWrp {
+  display: flex;
+  justify-content: center;
+
+  background: rgb(2, 0, 36);
+  background: linear-gradient(
+    90deg,
+    rgba(2, 0, 36, 1) 27%,
+    rgba(93, 93, 131, 0.9542243166797969) 77%,
+    rgba(46, 45, 82, 1) 90%
+  );
+}
+.footerContainer {
+  padding: 3rem 0rem 1rem;
+  color: white;
+}
