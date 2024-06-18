@@ -8,7 +8,6 @@ import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import frog from "../assets/images/frog-green-md.png";
-import highIcon from "../assets/images/high.svg";
 
 const MainFormListComponent = ({
   tasksArr,
