@@ -9,7 +9,6 @@ const Home = () => {
         <img src={logo} alt="logo" className={styles.logoImg} />
 
         <h1 className={styles.title}>Noted</h1>
-        {/* <img src={stopwatch} alt="stopwatch" className={styles.img} /> */}
       </div>
     </section>
   );

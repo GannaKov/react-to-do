@@ -9,11 +9,10 @@ const OneTaskCard = ({
   task,
   tasksArr,
   setTasksArr,
-  // setFilteredArr,
+
   onOkClick,
   btnDelete,
 }) => {
-  // const [, setOneTask] = useState(task);
   const [isReadOnly, setIsReadOnly] = useState(true);
   const [inputText, setInputText] = useState(task.taskName);
   const [textAreaText, setTextAreaText] = useState(task.task);
@@ -37,7 +36,7 @@ const OneTaskCard = ({
   function handleDeleteTask(idItem) {
     const arr = tasksArr.filter((task) => task.id != idItem);
     setTasksArr(arr);
-    // setFilteredArr(arr);
+
     localStorage.setItem("toDoList", JSON.stringify(arr));
   }
   function toggleCompletion() {
@@ -46,8 +45,7 @@ const OneTaskCard = ({
       t.id === task.id ? { ...t, isDone: !t.isDone } : t
     );
 
-    setTasksArr(updatedTasks); //????????
-    // setFilteredArr(updatedTasks);
+    setTasksArr(updatedTasks);
     localStorage.setItem("toDoList", JSON.stringify(updatedTasks));
   }
   function handleOkClick() {
@@ -60,7 +58,6 @@ const OneTaskCard = ({
       priority: priority,
     };
 
-    // setOneTask(newTask);
     onOkClick(newTask);
   }
 
@@ -69,7 +66,6 @@ const OneTaskCard = ({
       {isReadOnly ? (
         <div className={`${styles[priority]} ${styles.boxPriority}`}></div>
       ) : (
-        // className={`${styles[task.priority]} ${styles.boxPriority}`}
         <div
           className={styles.taskBtnsPriorityWrp}
           onClick={handlePriorityBtnClick}

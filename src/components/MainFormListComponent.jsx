@@ -19,14 +19,12 @@ const MainFormListComponent = ({
   handleAddBtnClick,
   setOption,
   option,
-  filteredArr,
-  setFilteredArr,
+
   setPriority,
   priority,
   sortByPriority,
   setSortByPriority,
   arrForShow,
-  setArrForShow,
 }) => {
   const handleChange = (event) => {
     setOption(event.target.value);
@@ -39,11 +37,9 @@ const MainFormListComponent = ({
   return (
     <div className={styles.wbsPageWrp}>
       <div className={styles.wbsContainer}>
-        {" "}
         {!isFormHidden && (
           <Form
             onFormSubmit={onFormSubmit}
-            //setNewTask={setNewTask}
             setNameTask={setNameTask}
             setTask={setTask}
             setPriority={setPriority}
@@ -91,16 +87,11 @@ const MainFormListComponent = ({
                 </FormControl>
               </div>
 
-              {/* {filteredArr && filteredArr.length > 0 ? ( */}
               {arrForShow && arrForShow.length > 0 ? (
                 <ToDoList
                   tasksArr={tasksArr}
-                  filteredArr={filteredArr}
-                  setFilteredArr={setFilteredArr}
                   arrForShow={arrForShow}
-                  setArrForShow={setArrForShow}
                   setTasksArr={setTasksArr}
-                  option={option}
                 />
               ) : (
                 <>

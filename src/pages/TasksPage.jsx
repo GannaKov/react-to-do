@@ -7,17 +7,18 @@ import { getDataFromLocalStorage } from "../services/requesrs";
 
 const TasksPage = () => {
   const [tasksArr, setTasksArr] = useState([]);
-  const [filteredArr, setFilteredArr] = useState([]);
-  const [sortedArr, setSortedArr] = useState([]);
   const [arrForShow, setArrForShow] = useState([]);
+
   const [isStartPageShown, setIsStartPageShown] = useState(false);
   const [isFormHidden, setIsFormHidden] = useState(true);
+
   const [nameTask, setNameTask] = useState("");
   const [task, setTask] = useState("");
   const [priority, setPriority] = useState("low");
 
   const [option, setOption] = useState("all");
   const [sortByPriority, setSortByPriority] = useState("no");
+
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
@@ -80,7 +81,7 @@ const TasksPage = () => {
         }
       }
     }
-    console.log("updatedFilteredTaskArr", updatedFilteredTaskArr);
+
     setArrForShow(updatedFilteredTaskArr);
   }, [option, sortByPriority, tasksArr]);
 
@@ -141,11 +142,11 @@ const TasksPage = () => {
             handleAddBtnClick={handleAddBtnClick}
             setOption={setOption}
             option={option}
-            filteredArr={filteredArr}
-            setFilteredArr={setFilteredArr}
+            // filteredArr={filteredArr}
+            // setFilteredArr={setFilteredArr}
             sortByPriority={sortByPriority}
             setSortByPriority={setSortByPriority}
-            setArrForShow={setArrForShow}
+            // setArrForShow={setArrForShow}
             arrForShow={arrForShow}
           />
         )}

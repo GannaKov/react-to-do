@@ -64,7 +64,7 @@ const SingleTaskPage = () => {
                 />
               </div>
             ) : (
-              <p>no task</p>
+              <p className={styles.text}>No task {id}</p>
             )}
           </>
         )}

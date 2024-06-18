@@ -4,21 +4,13 @@ import styles from "../styles/Form.module.css";
 
 const Form = ({
   onFormSubmit,
-  //setNewTask
+ 
   setNameTask,
   setTask,
   setPriority,
   priority,
 }) => {
-  // function onImputChange(e) {
-  //   setNewTask((prev) => ({ ...prev, [e.target.name]: e.target.value }));
-  // }
-  // function RadioBtnHandler(e) {
-  //   setStateForm((prev) => ({
-  //     ...prev,
-  //     priority: e.target.value,
-  //   }));
-  // }
+ 
   return (
     <div className={styles.wbsFormSection}>
       <form className={styles.wbsForm} onSubmit={onFormSubmit}>
@@ -31,7 +23,7 @@ const Form = ({
             type="text"
             className={styles.wbsInput}
             id="taskName"
-            //  onChange={onImputChange}
+            
             onChange={(e) => setNameTask(e.target.value)}
           />
         </div>
@@ -45,7 +37,7 @@ const Form = ({
             rows="3"
             id="task"
             placeholder="Please enter your task..."
-            //onChange={onImputChange}
+       
             onChange={(e) => setTask(e.target.value)}
           ></textarea>
           <div className={styles.wbsFormRatioWrp}>
@@ -62,7 +54,7 @@ const Form = ({
                   type="radio"
                   value="low"
                   checked={priority === "low"}
-                  // onChange={(e) => setPriority(e.target.value)}
+              
                   onChange={(e) => setPriority(e.target.value)}
                 />
               </div>
@@ -104,4 +96,4 @@ const Form = ({
   );
 };
 export default Form;
-//<div className={`${styles.wbsFormSection} ${styles.hidden}`}>
+

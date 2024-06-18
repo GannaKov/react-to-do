@@ -11,8 +11,6 @@
   margin: 0 auto;
 }
 .wbsGoBackWrp {
-  /* margin-top: 2rem;
-  margin-bottom: 3rem; */
   display: flex;
   justify-content: center;
   padding: 0 0 3rem;
@@ -43,7 +41,7 @@
   -webkit-box-shadow: 3px 5px 9px -2px rgba(0, 0, 0, 0.58);
   box-shadow: 3px 5px 9px -2px rgba(0, 0, 0, 0.58);
   border-radius: 5px;
-  /* padding: 1rem 2rem 2rem; */
+
   width: 100%;
   margin: 0 auto;
 }
@@ -57,4 +55,7 @@
   .singleCardWrp {
     width: 500px;
   }
+}
+.text {
+  font-size: 1.3rem;
 }
