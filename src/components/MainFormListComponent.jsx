@@ -8,6 +8,7 @@ import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import frog from "../assets/images/frog-green-md.png";
+import highIcon from "../assets/images/high.svg";
 
 const MainFormListComponent = ({
   tasksArr,
@@ -80,9 +81,15 @@ const MainFormListComponent = ({
                     inputProps={{ "aria-label": "Without label" }}
                     onChange={handleChangePrioritySort}
                   >
-                    <MenuItem value="no">No sort</MenuItem>
-                    <MenuItem value="high">H first</MenuItem>
-                    <MenuItem value="low">L first</MenuItem>
+                    <MenuItem value="no">No Sort</MenuItem>
+                    <MenuItem value="high">
+                      First&nbsp;&nbsp;
+                      <span className={`${styles.highIcon} ${styles.icon}`} />
+                    </MenuItem>
+                    <MenuItem value="low">
+                      First&nbsp;&nbsp;
+                      <span className={`${styles.lowIcon} ${styles.icon}`} />
+                    </MenuItem>
                   </Select>
                 </FormControl>
               </div>
