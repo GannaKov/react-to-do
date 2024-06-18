@@ -8,12 +8,22 @@ const ToDoList = ({
   //handleDeleteTask,
   setTasksArr,
   filteredArr,
+  arrForShow,
+  setArrForShow,
+  setFilteredArr,
 }) => {
   return (
     <ul className={styles.wbsList}>
-      {filteredArr.map((task) => (
+      {arrForShow.map((task) => (
         <li className={styles.wbsItem} key={task.id}>
-          <ToDoItem task={task} setTasksArr={setTasksArr} tasksArr={tasksArr} />
+          <ToDoItem
+            task={task}
+            setTasksArr={setTasksArr}
+            tasksArr={tasksArr}
+            setFilteredArr={setFilteredArr}
+            arrForShow={arrForShow}
+            setArrForShow={setArrForShow}
+          />
         </li>
       ))}
     </ul>

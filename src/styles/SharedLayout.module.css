@@ -1,4 +1,7 @@
 .wrapperSection {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 .headerWrp {
   padding-top: 1rem;

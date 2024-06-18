@@ -25,6 +25,8 @@ const MainFormListComponent = ({
   priority,
   sortByPriority,
   setSortByPriority,
+  arrForShow,
+  setArrForShow,
 }) => {
   const handleChange = (event) => {
     setOption(event.target.value);
@@ -32,90 +34,87 @@ const MainFormListComponent = ({
 
   const handleChangePrioritySort = (event) => {
     setSortByPriority(event.target.value);
-    const highTaskArr = tasksArr.filter((task) => task.priority === "high");
-    const lowTaskArr = tasksArr.filter((task) => task.priority === "low");
-    const mediumTaskArr = tasksArr.filter((task) => task.priority === "medium");
-    if (event.target.value === "high") {
-      setFilteredArr([...highTaskArr, ...mediumTaskArr, ...lowTaskArr]);
-    } else if (event.target.value === "low") {
-      setFilteredArr([...lowTaskArr, ...mediumTaskArr, ...highTaskArr]);
-    } else {
-      setFilteredArr(tasksArr);
-    }
   };
+
   return (
-    <>
-      {!isFormHidden && (
-        <Form
-          onFormSubmit={onFormSubmit}
-          //setNewTask={setNewTask}
-          setNameTask={setNameTask}
-          setTask={setTask}
-          setPriority={setPriority}
-          priority={priority}
-        />
-      )}
-
-      <div className={styles.wbsSection}>
-        {isFormHidden && (
-          <button
-            className={styles.wbsListBtnAdd}
-            onClick={handleAddBtnClick}
-            type="button"
-          >
-            Add
-          </button>
+    <div className={styles.wbsPageWrp}>
+      <div className={styles.wbsContainer}>
+        {" "}
+        {!isFormHidden && (
+          <Form
+            onFormSubmit={onFormSubmit}
+            //setNewTask={setNewTask}
+            setNameTask={setNameTask}
+            setTask={setTask}
+            setPriority={setPriority}
+            priority={priority}
+          />
         )}
-        {tasksArr && (
-          <>
-            <div className={styles.dropDown}>
-              <FormControl sx={{ m: 1, minWidth: 120 }}>
-                <Select
-                  value={option}
-                  displayEmpty
-                  inputProps={{ "aria-label": "Without label" }}
-                  onChange={handleChange}
-                >
-                  <MenuItem value="all">All</MenuItem>
-                  <MenuItem value="completed">Completed</MenuItem>
-                  <MenuItem value="notCompleted">Not Completed</MenuItem>
-                </Select>
-              </FormControl>
-            </div>
-            <div className={styles.dropDown}>
-              <FormControl sx={{ m: 1, minWidth: 120 }}>
-                <Select
-                  value={sortByPriority}
-                  displayEmpty
-                  inputProps={{ "aria-label": "Without label" }}
-                  onChange={handleChangePrioritySort}
-                >
-                  <MenuItem value="no">No sort</MenuItem>
-                  <MenuItem value="high">H first</MenuItem>
-                  <MenuItem value="low">L first</MenuItem>
-                </Select>
-              </FormControl>
-            </div>
+        <div className={styles.wbsSection}>
+          {isFormHidden && (
+            <button
+              className={styles.wbsListBtnAdd}
+              onClick={handleAddBtnClick}
+              type="button"
+            >
+              Add
+            </button>
+          )}
+          {tasksArr && (
+            <>
+              <div className={styles.dropDown}>
+                <FormControl sx={{ m: 1, minWidth: 120 }}>
+                  <Select
+                    value={option}
+                    displayEmpty
+                    inputProps={{ "aria-label": "Without label" }}
+                    onChange={handleChange}
+                  >
+                    <MenuItem value="all">All</MenuItem>
+                    <MenuItem value="completed">Completed</MenuItem>
+                    <MenuItem value="notCompleted">Not Completed</MenuItem>
+                  </Select>
+                </FormControl>
+              </div>
+              <div className={styles.dropDown}>
+                <FormControl sx={{ m: 1, minWidth: 120 }}>
+                  <Select
+                    value={sortByPriority}
+                    displayEmpty
+                    inputProps={{ "aria-label": "Without label" }}
+                    onChange={handleChangePrioritySort}
+                  >
+                    <MenuItem value="no">No sort</MenuItem>
+                    <MenuItem value="high">H first</MenuItem>
+                    <MenuItem value="low">L first</MenuItem>
+                  </Select>
+                </FormControl>
+              </div>
 
-            {filteredArr && filteredArr.length > 0 ? (
-              <ToDoList
-                tasksArr={tasksArr}
-                filteredArr={filteredArr}
-                setTasksArr={setTasksArr}
-                option={option}
-              />
-            ) : (
-              <>
-                <p className={styles.text}>
-                  There is nothing in {option} list.
-                </p>
-                <img className={styles.img} src={frog} alt="Frog" />
-              </>
-            )}
-          </>
-        )}
+              {/* {filteredArr && filteredArr.length > 0 ? ( */}
+              {arrForShow && arrForShow.length > 0 ? (
+                <ToDoList
+                  tasksArr={tasksArr}
+                  filteredArr={filteredArr}
+                  setFilteredArr={setFilteredArr}
+                  arrForShow={arrForShow}
+                  setArrForShow={setArrForShow}
+                  setTasksArr={setTasksArr}
+                  option={option}
+                />
+              ) : (
+                <>
+                  <p className={styles.text}>
+                    There is nothing in {option.toUpperCase()} list.
+                  </p>
+                  <img className={styles.img} src={frog} alt="Frog" />
+                </>
+              )}
+            </>
+          )}
+        </div>
       </div>
-    </>
+    </div>
   );
 };
 

@@ -9,6 +9,7 @@ const OneTaskCard = ({
   task,
   tasksArr,
   setTasksArr,
+  // setFilteredArr,
   onOkClick,
   btnDelete,
 }) => {
@@ -36,6 +37,7 @@ const OneTaskCard = ({
   function handleDeleteTask(idItem) {
     const arr = tasksArr.filter((task) => task.id != idItem);
     setTasksArr(arr);
+    // setFilteredArr(arr);
     localStorage.setItem("toDoList", JSON.stringify(arr));
   }
   function toggleCompletion() {
@@ -45,6 +47,7 @@ const OneTaskCard = ({
     );
 
     setTasksArr(updatedTasks); //????????
+    // setFilteredArr(updatedTasks);
     localStorage.setItem("toDoList", JSON.stringify(updatedTasks));
   }
   function handleOkClick() {

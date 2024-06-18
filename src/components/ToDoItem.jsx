@@ -1,17 +1,24 @@
 /* eslint-disable react/prop-types */
 
-
 import { Link } from "react-router-dom";
 import OneTaskCard from "./OneTaskCard";
 import styles from "../styles/ToDoItem.module.css";
 
-const ToDoItem = ({ task, setTasksArr, tasksArr }) => {
+const ToDoItem = ({
+  task,
+  setTasksArr,
+  tasksArr,
+  // setFilteredArr,
+  // arrForShow,
+  // setArrForShow,
+}) => {
   function onOkClick(newTask) {
     const updatedTodos = tasksArr.map((todo) =>
       todo.id === newTask.id ? newTask : todo
     );
 
     setTasksArr(updatedTodos);
+    // setFilteredArr(updatedTodos);
     localStorage.setItem("toDoList", JSON.stringify(updatedTodos));
   }
 
@@ -20,6 +27,7 @@ const ToDoItem = ({ task, setTasksArr, tasksArr }) => {
       task={task}
       tasksArr={tasksArr}
       setTasksArr={setTasksArr}
+      // setFilteredArr={setFilteredArr}
       onOkClick={onOkClick}
       btnDelete={true}
     >

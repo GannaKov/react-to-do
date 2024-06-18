@@ -40,34 +40,36 @@ const SingleTaskPage = () => {
   }
 
   return (
-    <>
-      <div className={styles.wbsGoBackWrp}>
-        <Link to={backLinkHref}>
-          <button className={styles.wbsGoBackBtn}>
-            &larr; Back to products
-          </button>
-        </Link>
-      </div>
+    <div className={styles.wbsPageWrp}>
+      <div className={styles.wbsContainer}>
+        <div className={styles.wbsGoBackWrp}>
+          <Link to={backLinkHref}>
+            <button className={styles.wbsGoBackBtn}>
+              &larr; Back to products
+            </button>
+          </Link>
+        </div>
 
-      {isLoading && <Spinner />}
-      {fetched && (
-        <>
-          {task ? (
-            <div className={styles.singleCardWrp}>
-              <OneTaskCard
-                task={task}
-                tasksArr={tasksArr}
-                setTasksArr={setTasksArr}
-                onOkClick={onOkClick}
-                btnDelete={false}
-              />
-            </div>
-          ) : (
-            <p>no task</p>
-          )}
-        </>
-      )}
-    </>
+        {isLoading && <Spinner />}
+        {fetched && (
+          <>
+            {task ? (
+              <div className={styles.singleCardWrp}>
+                <OneTaskCard
+                  task={task}
+                  tasksArr={tasksArr}
+                  setTasksArr={setTasksArr}
+                  onOkClick={onOkClick}
+                  btnDelete={false}
+                />
+              </div>
+            ) : (
+              <p>no task</p>
+            )}
+          </>
+        )}
+      </div>
+    </div>
   );
 };
 

@@ -1,3 +1,14 @@
+.wbsPageWrp {
+  padding: 3rem 0rem 2rem;
+}
+.wbsContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0rem 1rem;
+  margin: 0 auto;
+}
 .wbsSection {
   display: flex;
   padding: 0rem 1rem 2rem;
@@ -25,4 +36,7 @@
 }
 .wbsListBtnAdd:is(:hover, :focus) {
   transform: scale(1.15);
+}
+.text {
+  font-size: 1.3rem;
 }
